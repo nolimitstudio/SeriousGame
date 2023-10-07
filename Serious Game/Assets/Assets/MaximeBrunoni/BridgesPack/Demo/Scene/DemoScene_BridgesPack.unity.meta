@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Serious Game/Assets/Assets/MaximeBrunoni/BridgesPack/Demo/Scene/DemoScene_BridgesPack.unity.meta
 guid: 87885fbba7363e045bd85c381ac25628
+========
+guid: 109c9f591be4db347b3cf144a41fd183
+folderAsset: yes
+>>>>>>>> parent of 4ab3ae8 (Revert "Homes Added."):Serious Game/Assets/Models.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
