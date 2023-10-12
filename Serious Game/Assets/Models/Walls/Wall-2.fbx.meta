@@ -3,7 +3,17 @@ guid: 71899f627bcb6f04f9f60ac6e1dd20a1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall
+    second: {fileID: 2100000, guid: c181404611a0c434894f02a8aedd13ed, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: broken_wall_diff_4k
+    second: {fileID: 2800000, guid: bef4dd6609667d44e8586413722c9ef1, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
