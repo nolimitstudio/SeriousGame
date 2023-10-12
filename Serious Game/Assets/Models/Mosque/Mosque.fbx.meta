@@ -3,7 +3,87 @@ guid: a0899931caedcdc46a2ff1258b26c8d6
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black Metal Paint
+    second: {fileID: 2100000, guid: 275b0b92bed450949bd59ba727574050, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bricks Clay 01
+    second: {fileID: 2100000, guid: eca32f3862e3a0c4d8ddcd6ff230d114, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bricks Clay 01.001
+    second: {fileID: 2100000, guid: 272ba428339f56a48b0b16a0a6025c7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Concrete raw
+    second: {fileID: 2100000, guid: 305bf0e4ae383114895de2dffb8b2f29, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fine wood
+    second: {fileID: 2100000, guid: 803f59e6683246c48a2b91b18121fca6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Goldasteh
+    second: {fileID: 2100000, guid: 03ae0ed2ce77e564f8da04ee5bb1272e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gonbad2
+    second: {fileID: 2100000, guid: a04fc8018642bc642b2adf05a2ade1d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Green Glass
+    second: {fileID: 2100000, guid: a761ac08a927cfb42b0e7ecfb1591c40, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 05a3f065555c5404ab788e819cde39e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mehrab
+    second: {fileID: 2100000, guid: dc9d92d702fda9a4e83377e14cec6067, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal 04
+    second: {fileID: 2100000, guid: 2c0a5d63ca32d8747a6a66560d07cd88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Touched Plastic Rough
+    second: {fileID: 2100000, guid: c3bb7c249a2fb644a9e055fc4811b506, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gonbad
+    second: {fileID: 2100000, guid: 01eee614a75e24e43a24195b038665c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: nama
+    second: {fileID: 2100000, guid: 7f51ddeda55e7444491fc3a837383dd4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: uphol
+    second: {fileID: 2100000, guid: dee565fc169ce794884684ff90b5bb28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: uphol2
+    second: {fileID: 2100000, guid: df4c25e0a50e2244d863ba0c7363e8fe, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
