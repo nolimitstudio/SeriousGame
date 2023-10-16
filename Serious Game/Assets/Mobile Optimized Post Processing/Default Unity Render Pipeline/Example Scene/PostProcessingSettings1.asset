@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PostProcessingSettings1
   m_EditorClassIdentifier: 
   VignetteEnabled: 1
-  VignettePower: 1.38
+  VignettePower: 0.27
   VignetteCenter: {x: 0, y: 0}
   BlurEnabled: 0
   BlurRadius: 0.00111
