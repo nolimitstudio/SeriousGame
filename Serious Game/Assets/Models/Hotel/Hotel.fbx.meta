@@ -3,7 +3,137 @@ guid: 4b8e92b3796018248ab554a2a10c4712
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door
+    second: {fileID: 2100000, guid: 6070cc09e43437e40a621c5e29125710, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door2
+    second: {fileID: 2100000, guid: 22f6c1d16feb2e24fa410dedc87f22c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fountain
+    second: {fileID: 2100000, guid: 036815a35d0e8fe4ab7e695b7f8c9988, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 480cc5f749a836142ae31b98eba3f506, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 61e154d297769874e99e79a20a1c3ff7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 1b6e6f08c6e85614c93b8d918f03a8dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 22ff370c06d9d4f41a2e96a287579328, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: 2abb736b54b930946ad62234a570cb69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Water.001
+    second: {fileID: 2100000, guid: 01cd64998cacaf0439fa87f7f2b05683, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: White
+    second: {fileID: 2100000, guid: 6e08efe64302964438e7455868c02a6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Window
+    second: {fileID: 2100000, guid: 47f37bc42b90f2345a66e5696dea8d4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Window Texture
+    second: {fileID: 2100000, guid: b59b9b9d4038ae84ab33fab93ca69300, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: 99abb32207fc61e4c90a3aaf50f2aae8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood.001
+    second: {fileID: 2100000, guid: 8d118cfa5a2902f4e94fa3159c136e69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood.002
+    second: {fileID: 2100000, guid: d5fc31f706a7058439d48fe6e7452ce6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: candle
+    second: {fileID: 2100000, guid: 87aaedc4669395a419e60e8bb800ada3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dlaya1
+    second: {fileID: 2100000, guid: 59f176d10b0c56b4f81f10aee9b5e2d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dlaya2
+    second: {fileID: 2100000, guid: f8a726522748dea49bd5badf440aba85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: down
+    second: {fileID: 2100000, guid: 5b168df4c767cff4e926c0bb340d5363, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass.001
+    second: {fileID: 2100000, guid: 2e5b63bc45b259849b1dac0f10af5d6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass_down
+    second: {fileID: 2100000, guid: e6a4eeb9ef6501048b4e02a67b634a08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: top
+    second: {fileID: 2100000, guid: 6f5470e97cf14ba46befbdc52c6dc5c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: top2_low
+    second: {fileID: 2100000, guid: 6a26aaf7c858c8d4f88e262b9c7401db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: top_circle
+    second: {fileID: 2100000, guid: 90e6505a45e47c941ae83e5a70427f46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window
+    second: {fileID: 2100000, guid: 8944b4a67896fe34284705df1e93fe1e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zena
+    second: {fileID: 2100000, guid: 4b4dcb72e9586074ea3afad1f4086bcb, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
