@@ -23,18 +23,6 @@ public class GameController : MonoBehaviour
         // Add more steps as needed
     };
 
-    private string[] firstPanelTexts = {
-        "Welcome to Step 1! This is the first step of the tutorial.",
-        "Great! You've completed Step 1. Now, proceed to Step 2.",
-        // Add more text for additional steps
-    };
-
-    private string[] delayedPanelTexts = {
-        "This is the delayed text for Step 1.",
-        "This is the delayed text for Step 2.",
-        // Add more delayed text for additional steps
-    };
-
     private void Start()
     {
         tutorialText.gameObject.SetActive(false);
@@ -48,12 +36,12 @@ public class GameController : MonoBehaviour
         if (currentStep < tutorialSteps.Length)
         {
             tutorialText.gameObject.SetActive(true);
-            tutorialText.text = firstPanelTexts[currentStep];
+            tutorialText.text = tutorialSteps[currentStep];
 
             if (isDelayActive)
             {
                 delayedPanel.SetActive(true);
-                delayedText.text = delayedPanelTexts[currentStep];
+                delayedText.text = "Next step will begin in: " + Mathf.Ceil(delayDuration - delayTimer);
             }
         }
     }

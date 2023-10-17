@@ -14,6 +14,22 @@ public class Cameramoving: MonoBehaviour
     }
     private void FixedUpdate()
     {
-        gameObject.transform.position = new Vector3(Mathf.Clamp(transform.position.x, xmaxRangeDOwn, xmaxRange), transform.position.y, Mathf.Clamp(transform.position.z, zmaxRangeDown, zmaxRange));
+        if (gameObject.transform.position.x>= xmaxRange)
+        {
+            gameObject.transform.position = new Vector3(xmaxRange, gameObject.transform.position.y, gameObject.transform.position.z);
+        }
+        else if(gameObject.transform.position.x <= xmaxRangeDOwn)
+        {
+            gameObject.transform.position = new Vector3(xmaxRangeDOwn, gameObject.transform.position.y, gameObject.transform.position.z);
+        }
+        else if (gameObject.transform.position.z >= zmaxRange)
+        {
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, zmaxRange);
+        }
+        else if (gameObject.transform.position.z <= zmaxRangeDown)
+        {
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, zmaxRangeDown);
+        }
+        // gameObject.transform.position = new Vector3(Mathf.Clamp(transform.position.x, xmaxRangeDOwn, xmaxRange), transform.position.y, Mathf.Clamp(transform.position.z, zmaxRangeDown, zmaxRange));
     }
 }
