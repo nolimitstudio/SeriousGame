@@ -5,112 +5,71 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public Text tutorialText;
-    public Button understandButton;
-    public Button nextButton;
-    public GameObject[] tutorialObjects;
-    public Text delayedText;
-    public GameObject delayedPanel;
-    public float delayDuration = 3.0f;
-    private float delayTimer = 0.0f;
-    private bool isDelayActive = false;
-    private int currentStep = 0;
-    private bool isTutorialCompleted = false;
+    public string[] store_game;
+    public GameObject storetutral;
+    public Text Textstore;
+    private int crantstore = 0;
 
-    private string[] tutorialSteps = {
-        "Step 1: Click the red ball to continue.",
-        "Step 2: Click the green cube to continue.",
-        // Add more steps as needed
-    };
+    /// //////////////////////////////////////////////////
 
+    public string[] store_game_find;
+    public GameObject panelfind;
+    public Text Textpanel;
+
+    /// //////////////////////////////////////
+    public GameObject[] Objects;
     private void Start()
     {
-        tutorialText.gameObject.SetActive(false);
-        understandButton.onClick.AddListener(OnUnderstandButtonClick);
-        nextButton.onClick.AddListener(ShowTutorialPanel);
-        delayedPanel.SetActive(false);
+      
     }
 
-    private void ShowTutorialPanel()
+    public void ShowTutorialPanel()
     {
-        if (currentStep < tutorialSteps.Length)
+        storetutral.SetActive(true);
+        if (crantstore <= store_game.Length)
         {
-            tutorialText.gameObject.SetActive(true);
-            tutorialText.text = tutorialSteps[currentStep];
+            Textstore.text = store_game[crantstore];
 
-            if (isDelayActive)
-            {
-                delayedPanel.SetActive(true);
-                delayedText.text = "Next step will begin in: " + Mathf.Ceil(delayDuration - delayTimer);
-            }
         }
+
+
     }
 
-    private void OnUnderstandButtonClick()
+    public void OnUnderstandButtonClick()
     {
-        if (isTutorialCompleted)
-        {
-            return; // Don't continue if the tutorial is completed.
-        }
-
-        currentStep++;
-        if (currentStep < tutorialSteps.Length)
-        {
-            ShowTutorialPanel();
-            StartDelayTimer();
-        }
-        else
-        {
-            tutorialText.text = "Tutorial Complete!";
-            isTutorialCompleted = true;
-            isDelayActive = false;
-            delayedPanel.SetActive(false);
-        }
+        storetutral.SetActive(false);
+        panelfind.SetActive(false);
     }
 
-    private void StartDelayTimer()
-    {
-        isDelayActive = true;
-        delayTimer = 0.0f;
-        InvokeRepeating("UpdateDelayTimer", 0.0f, 1.0f);
-    }
+   
 
-    private void UpdateDelayTimer()
+    public   void objectfind()
     {
-        delayTimer += 1.0f;
-        if (delayTimer >= delayDuration)
-        {
-            isDelayActive = false;
-            CancelInvoke("UpdateDelayTimer");
-        }
-        else
-        {
-            delayedText.text = "Next step will begin in: " + Mathf.Ceil(delayDuration - delayTimer);
-        }
+        Textpanel.text = store_game_find[crantstore];
+        panelfind.SetActive(true);
+        crantstore++;
     }
 
     private void Update()
     {
-        if (isTutorialCompleted)
+        if (Input.GetMouseButtonDown(0))
         {
-            return; // Don't check for object clicks if the tutorial is completed.
-        }
+           
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-        if (currentStep < tutorialSteps.Length)
-        {
-            if (Input.GetMouseButtonDown(0))
+            if (Physics.Raycast(ray, out hit))
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit))
+                if (hit.collider.gameObject== Objects[crantstore])
                 {
-                    if (hit.collider.gameObject == tutorialObjects[currentStep])
-                    {
-                        OnUnderstandButtonClick();
-                    }
+                    Objects[crantstore].SetActive(false);  
+                    objectfind();
+                     Debug.Log(hit.collider.gameObject);
                 }
             }
+
         }
     }
+
+
 }
