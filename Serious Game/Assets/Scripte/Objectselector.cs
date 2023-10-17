@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 public class Objectselector: MonoBehaviour
 {
@@ -8,10 +9,12 @@ public class Objectselector: MonoBehaviour
     public GameObject menuPanel; // Reference to your menu panel in the Canvas.
     private bool isMenuOpen = false;
     public GameObject O_form;
-    public GameObject O_Game;
+    public GameObject O_Masjad;
      public GameObject O_Hadeobject;
     private GameObject selctbl;
     private bool flogselect=true;
+    public Text text;
+    private Name namecomponet;
     void Start()
     {
         // Ensure the menuPanel is initially disabled.
@@ -32,15 +35,17 @@ public class Objectselector: MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                // Check if the ray hits the object with this script.
-                if (hit.collider.gameObject == O_form)
+                if (hit.collider.gameObject.TryGetComponent<Name>(out namecomponet))
                 {
+
+
+                    // Check if the ray hits the object with this script.
                     if (flogselect)
                     {
                         selctbl = hit.collider.gameObject;
 
-                        selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x + 0.5f, selctbl.transform.localScale.y + 0.5f, selctbl.transform.localScale.z + 0.5f), 0.2f);
-
+                        selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x + 0.025f, selctbl.transform.localScale.y + 0.025f, selctbl.transform.localScale.z + 0.025f), 0.3f);
+                        text.text = namecomponet.OB_Name;
                         ToggleMenu();
                         Invoke("Defalt", 0.3f);
                         flogselect = false;
@@ -53,10 +58,10 @@ public class Objectselector: MonoBehaviour
                     flogselect = true;
                 }
             }
-            if (hit.collider.gameObject == O_Hadeobject)
-            {
-                Debug.Log("objectfind");
-            }
+            
+
+
+
         }
     }
 
@@ -73,7 +78,8 @@ public class Objectselector: MonoBehaviour
 
     public void Defalt()
     {
-        selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x - 0.5f, selctbl.transform.localScale.y - 0.5f, selctbl.transform.localScale.z - 0.5f),0.2f);
+         Debug.Log("ok");
+        selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x - 0.025f, selctbl.transform.localScale.y - 0.025f, selctbl.transform.localScale.z - 0.025f),0.3f);
       
     }
 }
