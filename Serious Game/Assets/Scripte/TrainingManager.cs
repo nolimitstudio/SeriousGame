@@ -5,13 +5,13 @@ public class TrainingManager : MonoBehaviour
 {
 
     public Camera[] cameras;         
-    public Text[] presentationTexts;
+    public GameObject [] presentationTexts;
     public Button nextButton;
     public string nextSceneName = "MainGame"; 
 
     private int currentPresentationIndex = 0;
     private bool hasDisplayedPresentations = false;
-
+    private int Moving = 0;
     private void Start()
     {
         if (PlayerPrefs.HasKey("PresentationsDisplayed"))
@@ -27,13 +27,18 @@ public class TrainingManager : MonoBehaviour
         else
         {
             
-            for (int i = 0; i < cameras.Length; i++)
+            for (int i = 1; i < cameras.Length; i++)
             {
-                cameras[i].gameObject.SetActive(i == 0);
-                presentationTexts[i].gameObject.SetActive(i == 0);
+                cameras[i].gameObject.SetActive(false);
+                presentationTexts[i].SetActive(false);
             }
 
             nextButton.onClick.AddListener(NextButtonClick);
+            nextButton.gameObject.SetActive(false);
+            Moving++;
+            Invoke("NextButtonClick", 3.3f);
+
+
         }
     }
 
@@ -43,7 +48,7 @@ public class TrainingManager : MonoBehaviour
         {
             
             cameras[currentPresentationIndex].gameObject.SetActive(false);
-            presentationTexts[currentPresentationIndex].gameObject.SetActive(false);
+            presentationTexts[currentPresentationIndex].SetActive(false);
 
             
             currentPresentationIndex++;
@@ -56,11 +61,20 @@ public class TrainingManager : MonoBehaviour
             }
             else
             {
-                
+                PlayerPrefs.SetInt("PresentationsDisplayed", 1);
                 SceneManager.LoadScene(nextSceneName);
 
                 
-                PlayerPrefs.SetInt("PresentationsDisplayed", 1);
+                
+            }
+            if (!(Moving==3))
+            {
+                Moving++;
+                Invoke("NextButtonClick", 3.3f);
+            }
+            else
+            {
+                nextButton.gameObject.SetActive(true);
             }
         }
     }
