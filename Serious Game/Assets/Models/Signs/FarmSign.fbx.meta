@@ -3,7 +3,17 @@ guid: 6e2a211a29171a849977046d2e3b1005
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Alley
+    second: {fileID: 2100000, guid: 60efeb4f22ba7384d85eeb788e147930, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: d46c04c49192e21478599266cae8dd38, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
