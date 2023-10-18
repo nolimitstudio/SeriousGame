@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 public class Objectselector: MonoBehaviour
 {
 
     public GameObject menuPanel; // Reference to your menu panel in the Canvas.
     private bool isMenuOpen = false;
-    public GameObject O_form;
-    public GameObject O_Masjad;
-     public GameObject O_Hadeobject;
+    
     private GameObject selctbl;
     private bool flogselect=true;
     public Text text;
     private Name namecomponet;
+    public Button Enter;
     void Start()
     {
         // Ensure the menuPanel is initially disabled.
@@ -44,8 +44,10 @@ public class Objectselector: MonoBehaviour
                     {
                         selctbl = hit.collider.gameObject;
 
-                        selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x + 0.025f, selctbl.transform.localScale.y + 0.025f, selctbl.transform.localScale.z + 0.025f), 0.3f);
+                        selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x + 0.005f, selctbl.transform.localScale.y + 0.005f, selctbl.transform.localScale.z + 0.005f), 0.2f);
+                        
                         text.text = namecomponet.OB_Name;
+                         
                         ToggleMenu();
                         Invoke("Defalt", 0.3f);
                         flogselect = false;
@@ -53,7 +55,7 @@ public class Objectselector: MonoBehaviour
                 }
                 else if (isMenuOpen)
                 {
-                    // If the menu is open and you click anywhere else, close it.
+                   
                     ToggleMenu();
                     flogselect = true;
                 }
@@ -67,19 +69,35 @@ public class Objectselector: MonoBehaviour
 
     void ToggleMenu()
     {
+         isMenuOpen = !isMenuOpen;
+            menuPanel.SetActive(isMenuOpen);
+             if(!isMenuOpen)
+              return;
         if (menuPanel != null)
         {
-            isMenuOpen = !isMenuOpen;
-            menuPanel.SetActive(isMenuOpen);
+            if (namecomponet.actevobje && namecomponet!= null)
+            {
+                Enter.gameObject.SetActive(true);
+                Enter.onClick.AddListener(delegate () { LoadSGame(namecomponet.Roomgoname); });
+            }
+            else
+            {
+                Enter.gameObject.SetActive(false);
+            }
+           
 
         }
 
     }
+    public void LoadSGame(string level)
+    {
+        SceneManager.LoadScene(level);
+    }
 
     public void Defalt()
     {
-         Debug.Log("ok");
-        selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x - 0.025f, selctbl.transform.localScale.y - 0.025f, selctbl.transform.localScale.z - 0.025f),0.3f);
+        Debug.Log("ok");
+        selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x - 0.005f, selctbl.transform.localScale.y - 0.005f, selctbl.transform.localScale.z - 0.005f),0.2f);
       
     }
 }
