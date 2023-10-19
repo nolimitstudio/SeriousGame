@@ -15,6 +15,10 @@ public class Objectselector: MonoBehaviour
     public Text text;
     private Name namecomponet;
     public Button Enter;
+    public string Relaxing;
+    public Camera CMRelaxing;
+    public Camera mincamra;
+    public GameObject BTnBake;
     void Start()
     {
         // Ensure the menuPanel is initially disabled.
@@ -37,9 +41,9 @@ public class Objectselector: MonoBehaviour
             {
                 if (hit.collider.gameObject.TryGetComponent<Name>(out namecomponet))
                 {
+                    
 
-
-                    // Check if the ray hits the object with this script.
+                    
                     if (flogselect)
                     {
                         selctbl = hit.collider.gameObject;
@@ -91,7 +95,29 @@ public class Objectselector: MonoBehaviour
     }
     public void LoadSGame(string level)
     {
-        SceneManager.LoadScene(level);
+        
+        if (level == Relaxing)
+        {
+              Debug.Log(level+ Relaxing);
+            CMRelaxing.gameObject.SetActive(true);
+            mincamra.gameObject.SetActive(false);
+            BTnBake.gameObject.SetActive(true);
+        }
+        else
+        {
+            SceneManager.LoadScene(level);
+        }
+        
+    }
+    public void bake()
+    {
+
+        CMRelaxing.gameObject.SetActive(false);
+        mincamra.gameObject.SetActive(true);
+        BTnBake.gameObject.SetActive(false);
+
+
+
     }
 
     public void Defalt()
