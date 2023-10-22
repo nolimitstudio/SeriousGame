@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
+
 public class Objectselector: MonoBehaviour
 {
 
@@ -16,12 +18,21 @@ public class Objectselector: MonoBehaviour
     private Name namecomponet;
     public Button Enter;
     public string Relaxing;
+    public string bomgrde;
+    public string koche;
     public Camera CMRelaxing;
     public Camera mincamra;
-    public GameObject BTnBake;
+    public GameObject riaxing_ui;
+    public GameObject Minui;
+    public Camera bomgarde_camera;
+    public GameObject bomgrdeui;
+    public Camera koche_camera;
+    public GameObject koche_ui;
+
+
     void Start()
     {
-        // Ensure the menuPanel is initially disabled.
+        
         if (menuPanel != null)
         {
             menuPanel.SetActive(false);
@@ -30,15 +41,17 @@ public class Objectselector: MonoBehaviour
 
     void Update()
     {
-        // Check for mouse click (you can use other input methods too).
+        
         if (Input.GetMouseButtonDown(0))
         {
-            // Cast a ray from the camera to the mouse cursor position.
+            
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
             {
+                ToggleMenu();
+                flogselect = true;
                 if (hit.collider.gameObject.TryGetComponent<Name>(out namecomponet))
                 {
                     
@@ -57,11 +70,11 @@ public class Objectselector: MonoBehaviour
                         flogselect = false;
                     }
                 }
+                
                 else if (isMenuOpen)
                 {
                    
-                    ToggleMenu();
-                    flogselect = true;
+                   
                 }
             }
             
@@ -101,7 +114,24 @@ public class Objectselector: MonoBehaviour
               Debug.Log(level+ Relaxing);
             CMRelaxing.gameObject.SetActive(true);
             mincamra.gameObject.SetActive(false);
-            BTnBake.gameObject.SetActive(true);
+            riaxing_ui.gameObject.SetActive(true);
+            Minui.SetActive(false);
+        }
+         else  if (level == bomgrde)
+        {
+            bomgarde_camera.gameObject.SetActive(true);
+            mincamra.gameObject.SetActive(false);
+            bomgrdeui.gameObject.SetActive(true);
+            Minui.SetActive(false);
+
+
+        }
+        else if (level== koche)
+        {
+            koche_camera.gameObject.SetActive(true);
+            mincamra.gameObject.SetActive(false);
+            koche_ui.gameObject.SetActive(true);
+            Minui.SetActive(false);
         }
         else
         {
@@ -109,13 +139,18 @@ public class Objectselector: MonoBehaviour
         }
         
     }
+
     public void bake()
     {
 
         CMRelaxing.gameObject.SetActive(false);
         mincamra.gameObject.SetActive(true);
-        BTnBake.gameObject.SetActive(false);
-
+        riaxing_ui.gameObject.SetActive(false);
+        Minui.SetActive(true);
+        koche_camera.gameObject.SetActive(false) ;
+        koche_ui.SetActive(false) ;
+        bomgarde_camera.gameObject.SetActive(false);
+        bomgrdeui.SetActive(false) ;
 
 
     }
