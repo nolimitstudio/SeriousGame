@@ -50,8 +50,7 @@ public class Objectselector: MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                ToggleMenu();
-                flogselect = true;
+                
                 if (hit.collider.gameObject.TryGetComponent<Name>(out namecomponet))
                 {
                     
@@ -73,9 +72,11 @@ public class Objectselector: MonoBehaviour
                 
                 else if (isMenuOpen)
                 {
-                   
-                   
+                    ToggleMenu();
+                    flogselect = true;
+
                 }
+                
             }
             
 
@@ -87,12 +88,13 @@ public class Objectselector: MonoBehaviour
     void ToggleMenu()
     {
          isMenuOpen = !isMenuOpen;
-            menuPanel.SetActive(isMenuOpen);
+            menuPanel.SetActive(isMenuOpen); 
              if(!isMenuOpen)
               return;
+
         if (menuPanel != null)
         {
-            if (namecomponet.actevobje && namecomponet!= null)
+            if ( namecomponet.actevobje== true &&!(namecomponet== null))
             {
                 Enter.gameObject.SetActive(true);
                 Enter.onClick.AddListener(delegate () { LoadSGame(namecomponet.Roomgoname); });
