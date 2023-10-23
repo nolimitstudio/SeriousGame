@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Threading;
+
 public class TrainingManager : MonoBehaviour
 {
 
@@ -12,6 +14,7 @@ public class TrainingManager : MonoBehaviour
     private int currentPresentationIndex = 0;
     private bool hasDisplayedPresentations = false;
     private int Moving = 0;
+    private Camera Camera;
     private void Start()
     {
         if (PlayerPrefs.HasKey("PresentationsDisplayed"))
@@ -46,18 +49,35 @@ public class TrainingManager : MonoBehaviour
     {
         if (!hasDisplayedPresentations)
         {
-            
-            cameras[currentPresentationIndex].gameObject.SetActive(false);
-            presentationTexts[currentPresentationIndex].SetActive(false);
+            //if (currentPresentationIndex== (cameras.Length))
+            //{
 
-            
+            //}
+            //else
+            //{
+                cameras[currentPresentationIndex].gameObject.SetActive(false);
+            //}
+          
+            presentationTexts[currentPresentationIndex].SetActive(false);
             currentPresentationIndex++;
 
-            if (currentPresentationIndex < cameras.Length)
+
+
+            if (currentPresentationIndex < presentationTexts.Length)
             {
+                //if (currentPresentationIndex==(cameras.Length+1))
+                //{
+                //    Camera = cameras[Random.Range(0, cameras.Length)];
+                //   Camera.gameObject.SetActive(true);
+                //}
+                //else
+                //{
+                    cameras[currentPresentationIndex].gameObject.SetActive(true);
+                //}
+
                
-                cameras[currentPresentationIndex].gameObject.SetActive(true);
                 presentationTexts[currentPresentationIndex].gameObject.SetActive(true);
+             
             }
             else
             {
@@ -67,7 +87,7 @@ public class TrainingManager : MonoBehaviour
                 
                 
             }
-            if (!(Moving==3))
+            if (!(Moving==1))
             {
                 Moving++;
                 Invoke("NextButtonClick", 3.3f);
