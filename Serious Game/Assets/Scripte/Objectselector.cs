@@ -20,6 +20,7 @@ public class Objectselector: MonoBehaviour
     public string Relaxing;
     public string bomgrde;
     public string koche;
+    public string minigame;
     public Camera CMRelaxing;
     public Camera mincamra;
     public GameObject riaxing_ui;
@@ -28,7 +29,7 @@ public class Objectselector: MonoBehaviour
     public GameObject bomgrdeui;
     public Camera koche_camera;
     public GameObject koche_ui;
-
+    public GameObject minigamepanel;
 
     void Start()
     {
@@ -96,6 +97,7 @@ public class Objectselector: MonoBehaviour
         {
             if ( namecomponet.actevobje== true &&!(namecomponet== null))
             {
+                Debug.Log("hi");
                 Enter.gameObject.SetActive(true);
                 Enter.onClick.AddListener(delegate () { LoadSGame(namecomponet.Roomgoname); });
             }
@@ -110,16 +112,16 @@ public class Objectselector: MonoBehaviour
     }
     public void LoadSGame(string level)
     {
-        
+
         if (level == Relaxing)
         {
-              Debug.Log(level+ Relaxing);
+            Debug.Log(level + Relaxing);
             CMRelaxing.gameObject.SetActive(true);
             mincamra.gameObject.SetActive(false);
             riaxing_ui.gameObject.SetActive(true);
             Minui.SetActive(false);
         }
-         else  if (level == bomgrde)
+        else if (level == bomgrde)
         {
             bomgarde_camera.gameObject.SetActive(true);
             mincamra.gameObject.SetActive(false);
@@ -128,12 +130,17 @@ public class Objectselector: MonoBehaviour
 
 
         }
-        else if (level== koche)
+        else if (level == koche)
         {
             koche_camera.gameObject.SetActive(true);
             mincamra.gameObject.SetActive(false);
             koche_ui.gameObject.SetActive(true);
             Minui.SetActive(false);
+        }
+        else if (level == minigame)
+        {
+            Minui.SetActive(false);
+            minigamepanel.SetActive(true);
         }
         else
         {
@@ -153,6 +160,7 @@ public class Objectselector: MonoBehaviour
         koche_ui.SetActive(false) ;
         bomgarde_camera.gameObject.SetActive(false);
         bomgrdeui.SetActive(false) ;
+        minigamepanel.SetActive(false);
 
 
     }
