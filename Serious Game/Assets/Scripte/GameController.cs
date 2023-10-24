@@ -22,7 +22,12 @@ public class GameController : MonoBehaviour
     public GameManager gameManager;
     private void Start()
     {
-      
+        crantstore = PlayerPrefs.GetInt("EVENT", 0);
+        for (int i = 0; i < crantstore; i++)
+        {
+            Objects[i].SetActive(false);
+
+        }
     }
 
     public void ShowTutorialPanel()
@@ -72,10 +77,11 @@ public class GameController : MonoBehaviour
             default:
                 break;
         }
-        gameManager.ModifyWaterResource(100);
+      
         Textpanel.text = store_game_find[crantstore];
         panelfind.SetActive(true);
         crantstore++;
+        PlayerPrefs.SetInt("EVENT", crantstore);
     }
 
     private void Update()
