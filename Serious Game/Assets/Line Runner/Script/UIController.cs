@@ -51,7 +51,7 @@ namespace RareCoders
 
             //We only need to update the text if the score changed.
             ScoreText.text = score.ToString();
-
+          
             //Reset the timer to 0.
             timer = 0;
         }
@@ -72,8 +72,9 @@ namespace RareCoders
         public void GameOver()
         {
             //Time.timeScale = 0f;
-
-
+            Debug.Log(score/2);
+              Debug.Log((score / 10) / score);
+            PlayerPrefs.SetInt("Water", (score / 2));
             if (score > GamePreferences.HighScore)
             {
                 GamePreferences.HighScore = GamePreferences.LastScore;

@@ -5,10 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher: MonoBehaviour
 {
-    public string targetSceneName="Intro"; // Name of the scene to switch to (e.g., "Scene2")
+    public string sceneToLoad;
+    public GameObject lodingpanel;
 
-    public void SwitchScene()
+    public void LoadScene()
     {
-        SceneManager.LoadScene(targetSceneName);
+      
+        StartCoroutine(LoadSceneAsync(sceneToLoad));
+        lodingpanel.SetActive(true);
+    }
+
+    private IEnumerator LoadSceneAsync(string sceneName)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+
+        while (!asyncLoad.isDone)
+        {
+         
+
+            yield return null;
+        }
     }
 }

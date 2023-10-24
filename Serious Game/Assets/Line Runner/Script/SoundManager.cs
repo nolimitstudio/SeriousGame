@@ -69,12 +69,12 @@ namespace RareCoders
 
         public void SetSoundSprites()
         {
-            menuController.Sound.sprite = SoundSprite[GamePreferences.Sound];
+           /// menuController.Sound.sprite = SoundSprite[GamePreferences.Sound];
         }
 
         public void SetMusicSprites()
         {
-            menuController.Music.sprite = MusicSprite[GamePreferences.Music];
+           /// menuController.Music.sprite = MusicSprite[GamePreferences.Music];
         }
 
         public void ManageAudioVolume()

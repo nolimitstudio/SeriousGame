@@ -131,6 +131,8 @@ public class UIController : MonoBehaviour
     {
         GarbageCollectionManager.CollectGarbage();
         TheGlobals.playingMode = false;
+        PlayerPrefs.SetInt("Water", (playScore*3));
+
     }
 
     public void LoadGameover()
@@ -141,9 +143,9 @@ public class UIController : MonoBehaviour
         {
             GamePreferences.HighScore = playScore;
         }
-
-        scoreTextGameover.text = "Score : " + playScore.ToString();
-        highScoreTextGameover.text = "High Score : " + GamePreferences.HighScore.ToString();
+        PlayerPrefs.SetInt("Water", (playScore * 3));
+        scoreTextGameover.text =  (playScore*3).ToString();
+        highScoreTextGameover.text =   GamePreferences.HighScore.ToString();
     }
 
     public void RestartGame()

@@ -1,3 +1,4 @@
+using AppAdvisory.MathGame;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class GameController : MonoBehaviour
 
     /// //////////////////////////////////////
     public GameObject[] Objects;
+    public GameManager gameManager;
     private void Start()
     {
       
@@ -45,6 +47,32 @@ public class GameController : MonoBehaviour
 
     public   void objectfind()
     {
+        switch (crantstore)
+        {
+            case 0:
+                gameManager.ModifyWaterResource(100);
+                gameManager.XPGoldResource(50);
+                break;
+            case 1:
+                gameManager.ModifyGoldResource(100);
+                gameManager.XPGoldResource(60);
+                break;
+            case 2:
+                gameManager.ModifyGoldResource(110);
+                gameManager.XPGoldResource(70);
+                break;
+            case 3:
+                gameManager.ModifyGoldResource(120);
+                gameManager.XPGoldResource(80);
+                break;
+            case 4:
+                gameManager.ModifyGoldResource(150);
+                gameManager.XPGoldResource(100);
+                break;
+            default:
+                break;
+        }
+        gameManager.ModifyWaterResource(100);
         Textpanel.text = store_game_find[crantstore];
         panelfind.SetActive(true);
         crantstore++;
