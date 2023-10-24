@@ -14,23 +14,13 @@ public class Kochekatrat : MonoBehaviour
     private int currentQuestionIndex = 0;
     private bool videoPlayed = false;
 
-    private string[] questions = {
-        "What is 2 + 2?",
-        "What is the capital of France?",
-        "Which planet is known as the 'Red Planet'?"
-    };
-
-    private string[][] answers = {
-        new string[] { "3", "4", "5" },
-        new string[] { "Berlin", "Madrid", "Paris" },
-        new string[] { "Mars", "Jupiter", "Venus" }
-    };
-
-    private int[] correctAnswers = { 1, 2, 0 }; // Index of the correct answers
+    public GameObject[] Qusithain;
+    public GameObject NOTture;
+    public GameManager GameManager;
 
     private void Start()
     {
-        // Initialize the game by showing the start panel
+       
         startPanel.SetActive(true);
         videoPanel.SetActive(false);
         questionPanel.SetActive(false);
@@ -43,13 +33,13 @@ public class Kochekatrat : MonoBehaviour
         videoPlayer.Play();
         videoPlayed = true;
 
-        // Subscribe to the videoPlayer loopPointReached event
+       
         videoPlayer.loopPointReached += OnVideoEnd;
     }
 
     private void OnVideoEnd(VideoPlayer vp)
     {
-        // This method is called when the video reaches its end
+     
         ShowQuestions();
     }
 
@@ -58,25 +48,20 @@ public class Kochekatrat : MonoBehaviour
         if (videoPlayed)
         {
             videoPanel.SetActive(false);
-            questionPanel.SetActive(true);
+         
             ShowQuestion(currentQuestionIndex);
         }
         else
         {
-            Debug.Log("You must watch the video first.");
+           
         }
     }
 
     private void ShowQuestion(int questionIndex)
     {
-        if (questionIndex < questions.Length)
+        if (questionIndex < Qusithain.Length)
         {
-            questionText.text = questions[questionIndex];
-
-            for (int i = 0; i < answerButtons.Length; i++)
-            {
-                answerButtons[i].GetComponentInChildren<Text>().text = answers[questionIndex][i];
-            }
+            Qusithain[questionIndex].SetActive(true);
         }
         else
         {
@@ -86,15 +71,25 @@ public class Kochekatrat : MonoBehaviour
 
     public void CheckAnswer(int answerIndex)
     {
-        if (answerIndex == correctAnswers[currentQuestionIndex])
+        if (answerIndex==1)
         {
-            Debug.Log("Correct!");
             currentQuestionIndex++;
             ShowQuestion(currentQuestionIndex);
+            GameManager.XPGoldResource(600);
         }
         else
         {
-            Debug.Log("Incorrect. Try again.");
+            NOTture.SetActive(true);
+            Invoke("alart",0.3f);
         }
+            
+           
+       
+    }
+
+
+    public  void alart()
+    {
+        NOTture.SetActive(false);
     }
 }

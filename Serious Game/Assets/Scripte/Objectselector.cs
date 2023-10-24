@@ -31,6 +31,7 @@ public class Objectselector: MonoBehaviour
     public GameObject koche_ui;
     public GameObject minigamepanel;
 
+    public SceneSwitcher SceneSwitcher;
     void Start()
     {
         
@@ -144,7 +145,10 @@ public class Objectselector: MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(level);
+            SceneSwitcher.sceneToLoad = level;
+            SceneSwitcher.LoadScene();
+
+
         }
         
     }

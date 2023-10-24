@@ -1,92 +1,150 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.UI;
 public class Bomgarde : MonoBehaviour
 {
-    public GameObject[] panels;      // An array of panel GameObjects
-    public Text questionText;        // Text component to display questions
-    public Button nextButton;        // Button to advance to the next panel or question
-    private int currentPanelIndex;   // Index of the currently displayed panel
-    private string[] questions;      // Array of questions
-    private int currentQuestionIndex; // Index of the current question
+    [SerializeField] string[] ENWORD;
+    [SerializeField] string[] faWORd;
+    [SerializeField] GameObject tutralpanel;
+    [SerializeField] Text entext1;
+    [SerializeField] Text fatext2;
+    [SerializeField] Text entext3;
+    [SerializeField] Text fatext4;
+    [SerializeField] Text entext5;
+    [SerializeField] Text fatext6;
+    [SerializeField] GameObject qusshin;
+    private bool tutral=true;
+    private int moving=0;
 
-    private bool buttonPressed;      // Flag to check if the button is pressed
 
+    [SerializeField] Text qusshintext;
+
+    [SerializeField] Button qusshintextbtn1;
+    [SerializeField] Button qusshintextbtn2;
+    [SerializeField] Button qusshintextbtn3;
+    private int x;
     private void Start()
     {
-        currentPanelIndex = 0;
-        currentQuestionIndex = 0;
-        buttonPressed = false;
+        tutralpanel.SetActive(false);
+        qusshin.SetActive(false);
+        qusshintextbtn1.onClick.AddListener(delegate () { bt1(); });
+        qusshintextbtn2.onClick.AddListener(delegate () { bt2(); });
+        qusshintextbtn3.onClick.AddListener(delegate () { bt3(); });
 
-        // Assign your questions to the questions array
-        questions = new string[]
-        {
-            "Question 1",
-            "Question 2",
-            "Question 3"
-            // Add more questions as needed
-        };
-
-        // Set up a button click event to handle panel and question progression
-        nextButton.onClick.AddListener(Advance);
     }
+
+      public  void  bt1()
+    {
+        if (qusshintextbtn1.GetComponentsInChildren<Text>()[0].text == faWORd[x])
+        {
+            btnclike();
+        }else
+        {
+
+
+        }
+
+
+    }
+    public void bt2()
+    {
+        if (qusshintextbtn2.GetComponentsInChildren<Text>()[0].text == faWORd[x])
+        {
+            btnclike();
+        }
+        else
+        {
+
+
+        }
+
+    }
+    public void bt3()
+    {
+        if (qusshintextbtn3.GetComponentsInChildren<Text>()[0].text == faWORd[x])
+        {
+            btnclike();
+        }
+        else
+        {
+
+
+        }
+
+    }
+
+
 
     private void Update()
     {
-        // Check if the button is released
-        if (buttonPressed && !nextButton.interactable)
-        {
-            buttonPressed = false;
-            Advance();
-        }
+       
     }
 
     private void Advance()
     {
-        if (currentPanelIndex < panels.Length)
-        {
-            // Hide the current panel
-            if (currentPanelIndex > 0)
-            {
-                panels[currentPanelIndex - 1].SetActive(false);
-            }
-
-            // Show the next panel
-            panels[currentPanelIndex].SetActive(true);
-
-            currentPanelIndex++;
-
-            if (currentPanelIndex == panels.Length)
-            {
-                // All panels have been displayed, show questions
-                ShowQuestion();
-            }
-        }
-        else if (currentQuestionIndex < questions.Length)
-        {
-            // Display the next question
-            ShowQuestion();
-        }
-        else
-        {
-            // All panels and questions have been displayed
-            Debug.Log("Game completed.");
-        }
+       
+        
     }
 
     private void ShowQuestion()
     {
-        if (currentQuestionIndex < questions.Length)
+         x = Random.Range(moving - 3, moving);
+        qusshintext.text = " ﺖﺴﯿﭼ ﻪﻤﻠﮐ ﻦﯾﺍ ﯽﻨﻌﻣ  " + "  " + ENWORD[x];
+        if (Random.Range(0,2)==1)
         {
-            // Display the next question
-            questionText.text = questions[currentQuestionIndex];
-            currentQuestionIndex++;
+            qusshintextbtn1.GetComponentsInChildren<Text>()[0].text = faWORd[moving - 2];
+            qusshintextbtn2.GetComponentsInChildren<Text>()[0].text = faWORd[moving - 1];
+            qusshintextbtn3.GetComponentsInChildren<Text>()[0].text = faWORd[x];
         }
         else
         {
-            // All questions answered, perform some action (e.g., go to the end screen).
-            Debug.Log("All questions answered. End of the game.");
+            qusshintextbtn1.GetComponentsInChildren<Text>()[0].text = faWORd[moving - 2];
+            qusshintextbtn2.GetComponentsInChildren<Text>()[0].text = faWORd[x];
+            qusshintextbtn3.GetComponentsInChildren<Text>()[0].text = faWORd[moving - 1];
+        }
+
+        tutral = true;
+        qusshin.SetActive(true);
+    }
+
+
+    public void starttutral()
+    {
+        tutralpanel.SetActive(true);
+        entext1.text = ENWORD[moving];
+        fatext2.text = faWORd[moving];
+        moving++;
+
+        entext3.text = ENWORD[moving];
+        fatext4.text = faWORd[moving];
+        moving++;
+
+        entext5.text = ENWORD[moving];
+        fatext6.text = faWORd[moving];
+        moving++;
+
+        tutral = false;
+
+    }
+
+
+
+
+    public   void btnclike()
+    {
+        if (tutral)
+        {
+            starttutral();
+        }
+        else
+        {
+            ShowQuestion();
         }
     }
+
+   
+      
 }
