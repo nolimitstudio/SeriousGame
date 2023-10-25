@@ -26,17 +26,13 @@ namespace RareCoders
 
         public GameObject crashEffect;
 
-        [SerializeField]
-        Color[] bgColor;
+        
 
         [SerializeField]
-        float colorLerpDuration;
 
         Camera _cam;
 
-        int randomColor;
 
-        Color _FirstColor, _secondColor;
 
         bool lerpBG = false;
 
@@ -56,18 +52,6 @@ namespace RareCoders
             {
                 DetectInput();
 
-                if (lerpBG)
-                {
-                    Color color = Color.Lerp(_FirstColor, _secondColor, _time);
-                    _time += Time.deltaTime / colorLerpDuration;
-                    _cam.backgroundColor = color;
-                    if (_time > colorLerpDuration)
-                    {
-                        _time = 0;
-                        lerpBG = false;
-                        _FirstColor = _secondColor;
-                    }
-                }
             }
         }
 
@@ -102,8 +86,6 @@ namespace RareCoders
                 TheGlobals.sManager.allAudio[1].Play();
                 collision.gameObject.SetActive(false);
                 lerpBG = true;
-                randomColor = Random.Range(0, bgColor.Length - 1);
-                _secondColor = bgColor[randomColor];
             }
         }
 
