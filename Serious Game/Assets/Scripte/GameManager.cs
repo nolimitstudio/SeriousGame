@@ -28,13 +28,14 @@ public class GameManager : MonoBehaviour
         waterresource = PlayerPrefs.GetInt("Water", 0);
         goldresource = PlayerPrefs.GetInt("Gold", 0);
         XPresource = PlayerPrefs.GetInt("XP", 0);
+ 	UpdateResourceUI();
         if (introscen)
         {
             sting.SetActive(false);
             alartdeilog.SetActive(false);
             Invoke("alart", 1f);
          
-            UpdateResourceUI();
+           
             SliderVolume.value = PlayerPrefs.GetFloat("sund", 1f);
         }
        

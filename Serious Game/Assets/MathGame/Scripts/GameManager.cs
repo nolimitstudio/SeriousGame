@@ -134,7 +134,7 @@ namespace AppAdvisory.MathGame
 
 			point.text = _score.ToString ();
 
-			levelText.text = "Level " + level.ToString ();
+			levelText.text = " ﻪﻠﺣﺮﻣ  " + level.ToString ();
 
 			//create the first question
 			ChooseOperator ();
