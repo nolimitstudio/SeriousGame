@@ -42,7 +42,8 @@ public class Objectselector: MonoBehaviour
 
     void Start()
     {
-        
+        Minui.SetActive(true);
+
         if (menuPanel != null)
         {
             menuPanel.SetActive(false);
@@ -129,6 +130,7 @@ public class Objectselector: MonoBehaviour
             mincamra.gameObject.SetActive(false);
             riaxing_ui.gameObject.SetActive(true);
             minigamepanel.SetActive(false);
+            Minui.SetActive(false);
         }
         else if (level == bomgrde)
         {
@@ -136,6 +138,7 @@ public class Objectselector: MonoBehaviour
             mincamra.gameObject.SetActive(false);
             bomgrdeui.gameObject.SetActive(true);
             minigamepanel.SetActive(false);
+            Minui.SetActive(false);
 
 
         }
@@ -145,6 +148,7 @@ public class Objectselector: MonoBehaviour
             mincamra.gameObject.SetActive(false);
             koche_ui.gameObject.SetActive(true);
             minigamepanel.SetActive(false);
+            Minui.SetActive(false);
         }
         else if (level == minigame)
         {
@@ -155,6 +159,7 @@ public class Objectselector: MonoBehaviour
         {
             SceneSwitcher.sceneToLoad = level;
             SceneSwitcher.LoadScene();
+            Minui.SetActive(false);
 
 
         }
@@ -182,6 +187,7 @@ public class Objectselector: MonoBehaviour
         Debug.Log("ok");
         selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x - 0.005f, selctbl.transform.localScale.y - 0.005f, selctbl.transform.localScale.z - 0.005f),0.2f);
       
+
     }
 
 
@@ -189,14 +195,23 @@ public class Objectselector: MonoBehaviour
 
      public  void roomclike1()
     {
+        Minui.SetActive(false);
         SceneSwitcher.sceneToLoad = roomgame1;
+        SceneSwitcher.LoadScene();
+    
     }
     public void roomclike2()
     {
+        Minui.SetActive(false);
         SceneSwitcher.sceneToLoad = roomgame2;
+        SceneSwitcher.LoadScene();
+       
     }
     public void roomclike3()
     {
+        Minui.SetActive(false);
         SceneSwitcher.sceneToLoad = roomgame3;
+        SceneSwitcher.LoadScene();
+     
     }
 }
