@@ -32,6 +32,14 @@ public class Objectselector: MonoBehaviour
     public GameObject minigamepanel;
 
     public SceneSwitcher SceneSwitcher;
+
+
+    public string roomgame1;
+    public string roomgame2;
+    public string roomgame3;
+
+
+
     void Start()
     {
         
@@ -98,7 +106,7 @@ public class Objectselector: MonoBehaviour
         {
             if ( namecomponet.actevobje== true &&!(namecomponet== null))
             {
-                Debug.Log("hi");
+               
                 Enter.gameObject.SetActive(true);
                 Enter.onClick.AddListener(delegate () { LoadSGame(namecomponet.Roomgoname); });
             }
@@ -120,14 +128,14 @@ public class Objectselector: MonoBehaviour
             CMRelaxing.gameObject.SetActive(true);
             mincamra.gameObject.SetActive(false);
             riaxing_ui.gameObject.SetActive(true);
-            Minui.SetActive(false);
+            minigamepanel.SetActive(false);
         }
         else if (level == bomgrde)
         {
             bomgarde_camera.gameObject.SetActive(true);
             mincamra.gameObject.SetActive(false);
             bomgrdeui.gameObject.SetActive(true);
-            Minui.SetActive(false);
+            minigamepanel.SetActive(false);
 
 
         }
@@ -136,11 +144,11 @@ public class Objectselector: MonoBehaviour
             koche_camera.gameObject.SetActive(true);
             mincamra.gameObject.SetActive(false);
             koche_ui.gameObject.SetActive(true);
-            Minui.SetActive(false);
+            minigamepanel.SetActive(false);
         }
         else if (level == minigame)
         {
-            Minui.SetActive(false);
+         
             minigamepanel.SetActive(true);
         }
         else
@@ -174,5 +182,21 @@ public class Objectselector: MonoBehaviour
         Debug.Log("ok");
         selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x - 0.005f, selctbl.transform.localScale.y - 0.005f, selctbl.transform.localScale.z - 0.005f),0.2f);
       
+    }
+
+
+
+
+     public  void roomclike1()
+    {
+        SceneSwitcher.sceneToLoad = roomgame1;
+    }
+    public void roomclike2()
+    {
+        SceneSwitcher.sceneToLoad = roomgame2;
+    }
+    public void roomclike3()
+    {
+        SceneSwitcher.sceneToLoad = roomgame3;
     }
 }

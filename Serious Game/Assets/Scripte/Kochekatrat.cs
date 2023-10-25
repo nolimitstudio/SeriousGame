@@ -29,7 +29,7 @@ public class Kochekatrat : MonoBehaviour
     public void PlayVideo()
     {
         startPanel.SetActive(false);
-        videoPanel.SetActive(true);
+        videoPanel.SetActive(false);
         videoPlayer.Play();
         videoPlayed = true;
 

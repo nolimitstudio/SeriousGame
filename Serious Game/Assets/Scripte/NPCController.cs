@@ -26,8 +26,18 @@ public class NPCController: MonoBehaviour
     {
         if (currentDestination < destinations.Length)
         {
-            agent.SetDestination(destinations[currentDestination].position);
-            currentDestination++;
+            if (destinations[currentDestination]== null)
+            {
+                currentDestination++;
+                MoveToNextDestination();
+
+            }
+            else
+            {
+                agent.SetDestination(destinations[currentDestination].position);
+                currentDestination++;
+            }
+           
         }
         else
         {
