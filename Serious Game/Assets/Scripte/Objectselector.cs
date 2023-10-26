@@ -38,7 +38,8 @@ public class Objectselector: MonoBehaviour
     public string roomgame2;
     public string roomgame3;
 
-
+    private bool racsting = true;
+     
 
     void Start()
     {
@@ -52,55 +53,79 @@ public class Objectselector: MonoBehaviour
 
     void Update()
     {
-        
+
         if (Input.GetMouseButtonDown(0))
         {
-            
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.GetType() == Enter.GetType());
-
-                if (hit.GetType() == Enter.GetType())
+                if (hit.collider.gameObject.TryGetComponent<Name>(out namecomponet))
                 {
-
+                    selctbl = hit.collider.gameObject;
+                    selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x + 0.005f, selctbl.transform.localScale.y + 0.005f, selctbl.transform.localScale.z + 0.005f), 0.2f);
+                    text.text = namecomponet.OB_Name;
+                    ToggleMenu();
+                    Invoke("Defalt", 0.3f);
                 }
                 else
                 {
-
-
-
-                    if (hit.collider.gameObject.TryGetComponent<Name>(out namecomponet))
-                    {
-
-
-
-                        if (flogselect)
-                        {
-                            selctbl = hit.collider.gameObject;
-
-                            selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x + 0.005f, selctbl.transform.localScale.y + 0.005f, selctbl.transform.localScale.z + 0.005f), 0.2f);
-
-                            text.text = namecomponet.OB_Name;
-
-                            ToggleMenu();
-                            Invoke("Defalt", 0.3f);
-                            flogselect = false;
-                        }
-                    }
-
-                    else if (isMenuOpen)
-                    {
-                        ToggleMenu();
-                        flogselect = true;
-
-                    }
-
+                    menuPanel.SetActive(false);
                 }
 
             }
+
+
+            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //RaycastHit hit;
+
+                //if (Physics.Raycast(ray, out hit))
+                //{
+
+
+                //    if ()
+                //    {
+
+                //    }
+                //    else
+                //    {
+
+                //        if (flogselect)
+                //        {
+
+                //            if (hit.collider.gameObject.TryGetComponent<Name>(out namecomponet))
+                //            {
+
+
+
+
+                //                selctbl = hit.collider.gameObject;
+
+                //                selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x + 0.005f, selctbl.transform.localScale.y + 0.005f, selctbl.transform.localScale.z + 0.005f), 0.2f);
+
+                //                text.text = namecomponet.OB_Name;
+
+                //                ToggleMenu();
+                //                Invoke("Defalt", 0.3f);
+                //                flogselect = false;
+
+
+
+                //            }
+                //        }
+
+                //        else if (isMenuOpen)
+                //        {
+
+                //            ToggleMenu();
+                //            flogselect = true;
+
+                //        }
+
+                //    }
+
+                //}
+
 
 
 
@@ -109,26 +134,40 @@ public class Objectselector: MonoBehaviour
 
     void ToggleMenu()
     {
-         isMenuOpen = !isMenuOpen;
-            menuPanel.SetActive(isMenuOpen); 
-             if(!isMenuOpen)
-              return;
-
-        if (menuPanel != null)
+        menuPanel.SetActive(true);
+        if (namecomponet.actevobje == true )
         {
-            if ( namecomponet.actevobje== true &&!(namecomponet== null))
-            {
-               
-                Enter.gameObject.SetActive(true);
-                Enter.onClick.AddListener(delegate () { LoadSGame(namecomponet.Roomgoname); });
-            }
-            else
-            {
-                Enter.gameObject.SetActive(false);
-            }
-           
-
+            Enter.gameObject.SetActive(true);
+             Enter.onClick.AddListener(delegate () { LoadSGame(namecomponet.Roomgoname); });
         }
+        else
+           {
+               Enter.gameObject.SetActive(false);
+            }
+
+
+
+
+            //isMenuOpen = !isMenuOpen;
+            //   menuPanel.SetActive(isMenuOpen); 
+            //    if(!isMenuOpen)
+            //     return;
+
+            //if (menuPanel != null)
+            //{
+            //    if ( namecomponet.actevobje== true &&!(namecomponet== null))
+            //    {
+
+            //        Enter.gameObject.SetActive(true);
+            //        Enter.onClick.AddListener(delegate () { LoadSGame(namecomponet.Roomgoname); });
+            //    }
+            //    else
+            //    {
+            //        Enter.gameObject.SetActive(false);
+            //    }
+
+
+            //}
 
     }
     public void LoadSGame(string level)

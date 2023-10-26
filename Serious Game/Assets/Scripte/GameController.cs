@@ -3,19 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class GameController : MonoBehaviour
 {
     public string[] store_game;
     public GameObject storetutral;
-    public Text Textstore;
+    public TMP_Text Textstore;
     private int crantstore = 0;
-
+    
     /// //////////////////////////////////////////////////
 
     public string[] store_game_find;
     public GameObject panelfind;
-    public Text Textpanel;
+    public TMP_Text Textpanel;
 
     /// //////////////////////////////////////
     public GameObject[] Objects;
@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
             Objects[i].SetActive(false);
 
         }
+        Textstore.alignment = TextAlignmentOptions.Right;
     }
 
     public void ShowTutorialPanel()
