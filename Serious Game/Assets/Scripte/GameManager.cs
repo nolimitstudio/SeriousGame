@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("alart", 5);
         }else
         {
-
+        
 
         }
 
