@@ -12,9 +12,9 @@ public class GameManager : MonoBehaviour
     public Slider SliderVolume;
 
     private float sundVolume = 1.0f;
-    private int waterresource = 100;
-    private int goldresource = 0;
-    private int XPresource = 0;
+    public int waterresource = 100;
+    public int goldresource = 0;
+    public int XPresource = 0;
 
     public AudioSource [] audioSources;
     public GameObject sting;

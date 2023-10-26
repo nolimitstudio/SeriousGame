@@ -204,31 +204,46 @@ public class Objectselector: MonoBehaviour
 
         if (namecomponet.Roomgoname == Relaxing)
         {
+            if (GameManager.goldresource > namecomponet.gold&& GameManager.waterresource> namecomponet.Water)
+            {
+                Debug.Log(level + Relaxing);
+                CMRelaxing.gameObject.SetActive(true);
+                mincamra.gameObject.SetActive(false);
+                riaxing_ui.gameObject.SetActive(true);
+                minigamepanel.SetActive(false);
+                Minui.SetActive(false);
+                GameManager.ModifyGoldResource(GameManager.goldresource - namecomponet.gold);
+                GameManager.ModifyWaterResource(GameManager.waterresource - namecomponet.Water);
+            }
            
-            Debug.Log(level + Relaxing);
-            CMRelaxing.gameObject.SetActive(true);
-            mincamra.gameObject.SetActive(false);
-            riaxing_ui.gameObject.SetActive(true);
-            minigamepanel.SetActive(false);
-            Minui.SetActive(false);
+           
         }
         else if (namecomponet.Roomgoname == bomgrde)
         {
-            bomgarde_camera.gameObject.SetActive(true);
-            mincamra.gameObject.SetActive(false);
-            bomgrdeui.gameObject.SetActive(true);
-            minigamepanel.SetActive(false);
-            Minui.SetActive(false);
-
+            if (GameManager.goldresource > namecomponet.gold && GameManager.waterresource > namecomponet.Water)
+            {
+                bomgarde_camera.gameObject.SetActive(true);
+                mincamra.gameObject.SetActive(false);
+                bomgrdeui.gameObject.SetActive(true);
+                minigamepanel.SetActive(false);
+                Minui.SetActive(false);
+                GameManager.ModifyGoldResource(GameManager.goldresource - namecomponet.gold);
+                GameManager.ModifyWaterResource(GameManager.waterresource - namecomponet.Water);
+            }
 
         }
         else if (namecomponet.Roomgoname == koche)
         {
-            koche_camera.gameObject.SetActive(true);
-            mincamra.gameObject.SetActive(false);
-            koche_ui.gameObject.SetActive(true);
-            minigamepanel.SetActive(false);
-            Minui.SetActive(false);
+            if (GameManager.goldresource > namecomponet.gold && GameManager.waterresource > namecomponet.Water)
+            {
+                koche_camera.gameObject.SetActive(true);
+                mincamra.gameObject.SetActive(false);
+                koche_ui.gameObject.SetActive(true);
+                minigamepanel.SetActive(false);
+                Minui.SetActive(false);
+                GameManager.ModifyGoldResource(GameManager.goldresource - namecomponet.gold);
+                GameManager.ModifyWaterResource(GameManager.waterresource - namecomponet.Water);
+            }
         }
         else if (level == minigame)
         {
@@ -237,9 +252,14 @@ public class Objectselector: MonoBehaviour
         }
         else
         {
-            SceneSwitcher.sceneToLoad = level;
-            SceneSwitcher.LoadScene();
-            Minui.SetActive(false);
+            if (GameManager.goldresource > namecomponet.gold && GameManager.waterresource > namecomponet.Water)
+            {
+                SceneSwitcher.sceneToLoad = level;
+                SceneSwitcher.LoadScene();
+                Minui.SetActive(false);
+                GameManager.ModifyGoldResource(GameManager.goldresource - namecomponet.gold);
+                GameManager.ModifyWaterResource(GameManager.waterresource - namecomponet.Water);
+            }
 
 
         }
