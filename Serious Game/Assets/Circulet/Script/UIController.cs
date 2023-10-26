@@ -97,7 +97,7 @@ public class UIController : MonoBehaviour
         _spawner.Spawner();
         TheGlobals.playingMode = true;
         StartCoroutine(FadeoutTutorial());
-        TheGlobals.sManager.bgMusic.volume = 0.6f;
+      
     }
 
     public void PauseGame()

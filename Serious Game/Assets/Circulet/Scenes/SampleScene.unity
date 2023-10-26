@@ -1571,7 +1571,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -5443,7 +5443,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1464317809}
-  - component: {fileID: 1464317810}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -5468,29 +5467,6 @@ Transform:
   - {fileID: 141551643}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1464317810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1464317808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6de467067a523ad4fb8096a2b165f13d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SoundSprite:
-  - {fileID: 21300000, guid: 77d1e38ecdeb4a54fb7d370690bf9fb6, type: 3}
-  - {fileID: 21300000, guid: 8c8f2cdbf262d364e8644686d9eb68d8, type: 3}
-  MusicSprite:
-  - {fileID: 21300000, guid: 643a6d8d8e055274f821fa12bbba1f5c, type: 3}
-  - {fileID: 21300000, guid: 9fccf83337dd5ed49aa52d652983d09b, type: 3}
-  allAudio:
-  - {fileID: 2037477639}
-  - {fileID: 183669294}
-  - {fileID: 535836}
-  bgMusic: {fileID: 799137489}
 --- !u!1 &1507706317
 GameObject:
   m_ObjectHideFlags: 0

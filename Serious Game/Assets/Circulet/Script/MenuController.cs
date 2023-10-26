@@ -85,19 +85,19 @@ public class MenuController : MonoBehaviour
     #region Public Methods
     public void PlayClickAudio(int index)
     {
-        TheGlobals.sManager.allAudio[index].Play();
+      
     }
 
     //Call this method on button from where you want to change sound preference
     public void ChangeSoundPref()
     {
-        TheGlobals.sManager.ChangeSoundPreference();
+    
     }
 
     ////Call this method on button from where you want to change music preference
     public void ChangeMusicPref()
     {
-        TheGlobals.sManager.ChangeMusicPreference();
+
     }
 
     public void OpenExitPanel()
