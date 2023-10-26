@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using UnityEngine.EventSystems;
+using System.Threading;
 
 public class Objectselector: MonoBehaviour
 {
@@ -50,31 +52,42 @@ public class Objectselector: MonoBehaviour
             menuPanel.SetActive(false);
         }
     }
+     private  bool  ismouseoverui()
+    {
+
+        return EventSystem.current.IsPointerOverGameObject();
+    }
 
     void Update()
     {
-
-        if (Input.GetMouseButtonDown(0))
+        if (ismouseoverui())
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+        }else
+        {
+
+
+
+            if (Input.GetMouseButtonDown(0))
             {
-                if (hit.collider.gameObject.TryGetComponent<Name>(out namecomponet))
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity ))
                 {
-                    selctbl = hit.collider.gameObject;
-                    selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x + 0.005f, selctbl.transform.localScale.y + 0.005f, selctbl.transform.localScale.z + 0.005f), 0.2f);
-                    text.text = namecomponet.OB_Name;
-                    ToggleMenu();
-                    Invoke("Defalt", 0.3f);
-                }
-                else
-                {
-                    menuPanel.SetActive(false);
-                }
+                    if (hit.collider.gameObject.TryGetComponent<Name>(out namecomponet))
+                    {
+                        selctbl = hit.collider.gameObject;
+                        selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x + 0.005f, selctbl.transform.localScale.y + 0.005f, selctbl.transform.localScale.z + 0.005f), 0.2f);
+                        text.text = namecomponet.OB_Name;
+                        ToggleMenu();
+                        Invoke("Defalt", 0.3f);
+                    }
+                    else
+                    {
+                        menuPanel.SetActive(false);
+                    }
 
+                }
             }
-
 
 
             //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
