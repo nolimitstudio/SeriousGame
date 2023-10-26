@@ -52,7 +52,7 @@ namespace DG.DOTweenEditor
             // Preview - Play
             GUILayout.BeginHorizontal();
             EditorGUI.BeginDisabledGroup(
-                isPreviewingThis || src.animationType == DOTweenAnimation.AnimationType.None
+                isPreviewingThis || src.animationType == DOTweenAnimationType.None
                 || !src.isActive || _previewOnlyIfSetToAutoPlay && !src.autoPlay
             );
             if (GUILayout.Button("► Play", Styles.btPreview)) {
@@ -108,13 +108,6 @@ namespace DG.DOTweenEditor
             return isPreviewing;
         }
 
-#if !(UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_5)
-        public static void StopAllPreviews(PlayModeStateChange state)
-        {
-            StopAllPreviews();
-        }
-#endif
-
         public static void StopAllPreviews()
         {
             _TmpKeys.Clear();
@@ -126,29 +119,19 @@ namespace DG.DOTweenEditor
             _AnimationToTween.Clear();
 
             DOTweenEditorPreview.Stop();
-#if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_5
-            UnityEditor.EditorApplication.playmodeStateChanged -= StopAllPreviews;
-#else
-            UnityEditor.EditorApplication.playModeStateChanged -= StopAllPreviews;
-#endif
-//            EditorApplication.playmodeStateChanged -= StopAllPreviews;
+            EditorApplication.playmodeStateChanged -= StopAllPreviews;
 
             InternalEditorUtility.RepaintAllViews();
         }
 
-#endregion
+        #endregion
 
-#region Methods
+        #region Methods
 
         static void StartupGlobalPreview()
         {
             DOTweenEditorPreview.Start();
-#if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_5
-            UnityEditor.EditorApplication.playmodeStateChanged += StopAllPreviews;
-#else
-            UnityEditor.EditorApplication.playModeStateChanged += StopAllPreviews;
-#endif
-//            EditorApplication.playmodeStateChanged += StopAllPreviews;
+            EditorApplication.playmodeStateChanged += StopAllPreviews;
         }
 
         static void AddAnimationToGlobalPreview(DOTweenAnimation src)
@@ -189,12 +172,8 @@ namespace DG.DOTweenEditor
                 Debug.LogWarning("DOTween Preview ► Couldn't find tween to stop");
                 return;
             }
-            if (tInfo.isFrom) {
-                int totLoops = tInfo.tween.Loops();
-                if (totLoops < 0 || totLoops > 1) {
-                    tInfo.tween.Goto(tInfo.tween.Duration(false));
-                } else tInfo.tween.Complete();
-            } else tInfo.tween.Rewind();
+            if (tInfo.isFrom) tInfo.tween.Complete();
+            else tInfo.tween.Rewind();
             tInfo.tween.Kill();
             EditorUtility.SetDirty(tInfo.animation); // Refresh views
 
@@ -208,19 +187,15 @@ namespace DG.DOTweenEditor
             for (int i = keys.Count - 1; i > -1; --i) {
                 DOTweenAnimation anim = keys[i];
                 TweenInfo tInfo = _AnimationToTween[anim];
-                if (tInfo.isFrom) {
-                    int totLoops = tInfo.tween.Loops();
-                    if (totLoops < 0 || totLoops > 1) {
-                        tInfo.tween.Goto(tInfo.tween.Duration(false));
-                    } else tInfo.tween.Complete();
-                } else tInfo.tween.Rewind();
+                if (tInfo.isFrom) tInfo.tween.Complete();
+                else tInfo.tween.Rewind();
                 tInfo.tween.Kill();
                 EditorUtility.SetDirty(anim); // Refresh views
                 _AnimationToTween.Remove(anim);
             }
         }
 
-#endregion
+        #endregion
 
         // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
         // ███ INTERNAL CLASSES ████████████████████████████████████████████████████████████████████████████████████████████████
