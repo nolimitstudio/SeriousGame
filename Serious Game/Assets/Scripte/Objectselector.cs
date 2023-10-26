@@ -61,35 +61,46 @@ public class Objectselector: MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                
-                if (hit.collider.gameObject.TryGetComponent<Name>(out namecomponet))
-                {
-                    
+                Debug.Log(hit.GetType() == Enter.GetType());
 
-                    
-                    if (flogselect)
+                if (hit.GetType() == Enter.GetType())
+                {
+
+                }
+                else
+                {
+
+
+
+                    if (hit.collider.gameObject.TryGetComponent<Name>(out namecomponet))
                     {
-                        selctbl = hit.collider.gameObject;
 
-                        selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x + 0.005f, selctbl.transform.localScale.y + 0.005f, selctbl.transform.localScale.z + 0.005f), 0.2f);
-                        
-                        text.text = namecomponet.OB_Name;
-                         
-                        ToggleMenu();
-                        Invoke("Defalt", 0.3f);
-                        flogselect = false;
+
+
+                        if (flogselect)
+                        {
+                            selctbl = hit.collider.gameObject;
+
+                            selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x + 0.005f, selctbl.transform.localScale.y + 0.005f, selctbl.transform.localScale.z + 0.005f), 0.2f);
+
+                            text.text = namecomponet.OB_Name;
+
+                            ToggleMenu();
+                            Invoke("Defalt", 0.3f);
+                            flogselect = false;
+                        }
                     }
-                }
-                
-                else if (isMenuOpen)
-                {
-                    ToggleMenu();
-                    flogselect = true;
+
+                    else if (isMenuOpen)
+                    {
+                        ToggleMenu();
+                        flogselect = true;
+
+                    }
 
                 }
-                
+
             }
-            
 
 
 
