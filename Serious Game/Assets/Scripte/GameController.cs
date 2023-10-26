@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Threading;
+
 public class GameController : MonoBehaviour
 {
   
@@ -26,11 +28,18 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         crantstore = PlayerPrefs.GetInt("EVENT", 0);
-        for (int i = 0; i < crantstore; i++)
+        if (crantstore==0)
         {
-            Objects[i].SetActive(false);
 
+        }else
+        {
+            for (int i = 0; i < crantstore; i++)
+            {
+                Objects[i].SetActive(false);
+
+            }
         }
+     
        
     }
 
