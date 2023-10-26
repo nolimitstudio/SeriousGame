@@ -20,7 +20,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)
         {
-            TheGlobals.sManager.allAudio[2].Play();
+        
 
             collision.gameObject.SetActive(false);
             
@@ -37,7 +37,7 @@ public class PlayerManager : MonoBehaviour
         if (collision.gameObject.layer == 9)
         {
             collision.enabled = false;
-            TheGlobals.sManager.allAudio[1].Play();
+          
             collision.gameObject.GetComponent<AddInScore>().moveTowardsTarget = true;           
         }
     }
