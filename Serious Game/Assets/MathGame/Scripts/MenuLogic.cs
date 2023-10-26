@@ -54,36 +54,37 @@ namespace AppAdvisory.MathGame
 		public void OnEnable()
 		{
 
-			foreach (Transform t in Title)
-			{
-				t.localScale = Vector3.one;
+			//	foreach (Transform t in Title)
+			//	{
+			//		t.localScale = Vector3.one;
 
-			}
+			//	}
 
-			FirstTimeMenu.SetActive (firstTime);
-			GameOverMenu.SetActive (!firstTime);
+			//	FirstTimeMenu.SetActive (firstTime);
+			//	GameOverMenu.SetActive (!firstTime);
 
-			if (!firstTime) 
-			{
-				M.text = "G";
-				A.text = "A";
-				T.text = "M";
-				H.text = "E";
-				G.text = "O";
-				A_.text = "V";
-				M_.text = "E";
-				E.text = "R";
-			}
+			//	if (!firstTime) 
+			//	{
+			//		M.text = "G";
+			//		A.text = "A";
+			//		T.text = "M";
+			//		H.text = "E";
+			//		G.text = "O";
+			//		A_.text = "V";
+			//		M_.text = "E";
+			//		E.text = "R";
+			//	}
 
-			firstTime = false;
-		}
+			//	firstTime = false;
+			//}
 
-		public void OnDisable()
-		{
-			foreach (Transform t in Title) 
-			{
-				t.localScale = Vector3.one;
-			}
+			//public void OnDisable()
+			//{
+			//	//foreach (Transform t in Title) 
+			//	//{
+			//	//	t.localScale = Vector3.one;
+			//	//}
+			//}
 		}
 	}
 }

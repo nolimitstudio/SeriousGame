@@ -8,7 +8,7 @@ public class Kochekatrat : MonoBehaviour
     public GameObject videoPanel;
     public GameObject questionPanel;
     public Text questionText;
-    public Button[] answerButtons;
+
     public VideoPlayer videoPlayer;
 
     private int currentQuestionIndex = 0;
@@ -17,6 +17,8 @@ public class Kochekatrat : MonoBehaviour
     public GameObject[] Qusithain;
     public GameObject NOTture;
     public GameManager GameManager;
+    
+     
 
     private void Start()
     {
@@ -75,7 +77,7 @@ public class Kochekatrat : MonoBehaviour
         {
             currentQuestionIndex++;
             ShowQuestion(currentQuestionIndex);
-            GameManager.XPGoldResource(600);
+       
         }
         else
         {
@@ -87,6 +89,8 @@ public class Kochekatrat : MonoBehaviour
        
     }
 
+     public void  voidxpsave()
+    { GameManager.XPGoldResource(600); }
 
     public  void alart()
     {

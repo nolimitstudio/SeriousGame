@@ -32,9 +32,11 @@ public class Objectselector: MonoBehaviour
     public Camera koche_camera;
     public GameObject koche_ui;
     public GameObject minigamepanel;
-
+    public GameManager GameManager;
     public SceneSwitcher SceneSwitcher;
-
+    public Text gold;
+    public Text water;
+    public GameObject scenobj;
 
     public string roomgame1;
     public string roomgame2;
@@ -78,6 +80,17 @@ public class Objectselector: MonoBehaviour
                         selctbl = hit.collider.gameObject;
                         selctbl.transform.DOScale(new Vector3(selctbl.transform.localScale.x + 0.005f, selctbl.transform.localScale.y + 0.005f, selctbl.transform.localScale.z + 0.005f), 0.2f);
                         text.text = namecomponet.OB_Name;
+                        if (namecomponet.actevobje)
+                        {
+                            gold.text = namecomponet.gold.ToString();
+                            water.text = namecomponet.Water.ToString();
+                            scenobj.SetActive(true);
+                        }
+                        else
+                        {
+                            scenobj.SetActive(false);
+                        }
+                       
                         ToggleMenu();
                         Invoke("Defalt", 0.3f);
                     }
@@ -187,8 +200,11 @@ public class Objectselector: MonoBehaviour
     public void LoadSGame(string level)
     {
 
+
+
         if (namecomponet.Roomgoname == Relaxing)
         {
+           
             Debug.Log(level + Relaxing);
             CMRelaxing.gameObject.SetActive(true);
             mincamra.gameObject.SetActive(false);
