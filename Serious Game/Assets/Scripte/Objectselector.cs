@@ -76,6 +76,7 @@ public class Objectselector: MonoBehaviour
             }
 
 
+
             //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             //RaycastHit hit;
 
@@ -173,7 +174,7 @@ public class Objectselector: MonoBehaviour
     public void LoadSGame(string level)
     {
 
-        if (level == Relaxing)
+        if (namecomponet.Roomgoname == Relaxing)
         {
             Debug.Log(level + Relaxing);
             CMRelaxing.gameObject.SetActive(true);
@@ -182,7 +183,7 @@ public class Objectselector: MonoBehaviour
             minigamepanel.SetActive(false);
             Minui.SetActive(false);
         }
-        else if (level == bomgrde)
+        else if (namecomponet.Roomgoname == bomgrde)
         {
             bomgarde_camera.gameObject.SetActive(true);
             mincamra.gameObject.SetActive(false);
@@ -192,7 +193,7 @@ public class Objectselector: MonoBehaviour
 
 
         }
-        else if (level == koche)
+        else if (namecomponet.Roomgoname == koche)
         {
             koche_camera.gameObject.SetActive(true);
             mincamra.gameObject.SetActive(false);
