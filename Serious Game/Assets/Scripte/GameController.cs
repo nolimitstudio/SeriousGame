@@ -6,16 +6,19 @@ using UnityEngine.UI;
 using TMPro;
 public class GameController : MonoBehaviour
 {
-    public string[] store_game;
+  
     public GameObject storetutral;
-    public TMP_Text Textstore;
+
     private int crantstore = 0;
-    
+
+    public Sprite[] image;
+    public Image Image;
+
     /// //////////////////////////////////////////////////
 
     public string[] store_game_find;
     public GameObject panelfind;
-    public TMP_Text Textpanel;
+    public Text  Textpanel;
 
     /// //////////////////////////////////////
     public GameObject[] Objects;
@@ -28,15 +31,17 @@ public class GameController : MonoBehaviour
             Objects[i].SetActive(false);
 
         }
-        Textstore.alignment = TextAlignmentOptions.Right;
+       
     }
 
     public void ShowTutorialPanel()
     {
         storetutral.SetActive(true);
-        if (crantstore <= store_game.Length)
+        Image.gameObject.SetActive(true);
+        Textpanel.gameObject.SetActive(false);
+        if (crantstore <= image.Length)
         {
-            Textstore.text = store_game[crantstore];
+            Image.sprite = image[crantstore];
 
         }
 
@@ -47,6 +52,8 @@ public class GameController : MonoBehaviour
     {
         storetutral.SetActive(false);
         panelfind.SetActive(false);
+        Image.gameObject.SetActive(false);
+        Textpanel.gameObject.SetActive(true);
     }
 
    
@@ -78,10 +85,15 @@ public class GameController : MonoBehaviour
             default:
                 break;
         }
-      
-        Textpanel.text = store_game_find[crantstore];
         panelfind.SetActive(true);
-        crantstore++;
+        Image.gameObject.SetActive(false);
+        Textpanel.text = store_game_find[crantstore];
+
+        if (!(crantstore== image.Length))
+        {
+            crantstore++;
+        }
+      
         PlayerPrefs.SetInt("EVENT", crantstore);
     }
 
