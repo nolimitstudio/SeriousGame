@@ -15,6 +15,7 @@ public class TrainingManager : MonoBehaviour
     private bool hasDisplayedPresentations = false;
     private int Moving = 0;
     private Camera Camera;
+    public SceneSwitcher sceneSwitcher;
     private void Start()
     {
         if (PlayerPrefs.HasKey("PresentationsDisplayed"))
@@ -24,8 +25,8 @@ public class TrainingManager : MonoBehaviour
 
         if (hasDisplayedPresentations)
         {
-            
-            SceneManager.LoadScene(nextSceneName);
+            sceneSwitcher.sceneToLoad = "Intro";
+            sceneSwitcher.LoadScene();
         }
         else
         {
@@ -39,8 +40,8 @@ public class TrainingManager : MonoBehaviour
             nextButton.onClick.AddListener(NextButtonClick);
             nextButton.gameObject.SetActive(false);
             Moving++;
-            Invoke("NextButtonClick", 3.3f);
-
+           // Invoke("NextButtonClick", 3.3f);
+            nextButton.gameObject.SetActive(true);
 
         }
     }
@@ -49,13 +50,14 @@ public class TrainingManager : MonoBehaviour
     {
         if (!hasDisplayedPresentations)
         {
+            nextButton.gameObject.SetActive(true);
             //if (currentPresentationIndex== (cameras.Length))
             //{
 
             //}
             //else
             //{
-                cameras[currentPresentationIndex].gameObject.SetActive(false);
+            cameras[currentPresentationIndex].gameObject.SetActive(false);
             //}
           
             presentationTexts[currentPresentationIndex].SetActive(false);
@@ -72,7 +74,11 @@ public class TrainingManager : MonoBehaviour
                 //}
                 //else
                 //{
+                if (currentPresentationIndex< cameras.Length)
+                {
                     cameras[currentPresentationIndex].gameObject.SetActive(true);
+                }
+                   /// cameras[currentPresentationIndex].gameObject.SetActive(true);
                 //}
 
                
@@ -82,20 +88,21 @@ public class TrainingManager : MonoBehaviour
             else
             {
                 PlayerPrefs.SetInt("PresentationsDisplayed", 1);
-                SceneManager.LoadScene(nextSceneName);
+                sceneSwitcher.sceneToLoad = "Intro";
+                sceneSwitcher.LoadScene();
 
-                
-                
+
+
             }
-            if (!(Moving==1))
-            {
-                Moving++;
-                Invoke("NextButtonClick", 3.3f);
-            }
-            else
-            {
-                nextButton.gameObject.SetActive(true);
-            }
+            //if (!(Moving==1))
+            //{
+            //    Moving++;
+            //    Invoke("NextButtonClick", 3.3f);
+            //}
+            //else
+            //{
+               
+            //}
         }
     }
 }
