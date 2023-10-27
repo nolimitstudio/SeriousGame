@@ -38,7 +38,7 @@ public class TrainingManager : MonoBehaviour
             //}
 
             nextButton.onClick.AddListener(NextButtonClick);
-            nextButton.gameObject.SetActive(false);
+            nextButton.gameObject.SetActive(true);
             Moving++;
            // Invoke("NextButtonClick", 3.3f);
             nextButton.gameObject.SetActive(true);
@@ -51,7 +51,7 @@ public class TrainingManager : MonoBehaviour
         if (!hasDisplayedPresentations)
         {
            
-            nextButton.gameObject.SetActive(true);
+           // nextButton.gameObject.SetActive(true);
                 cameras[currentPresentationIndex].gameObject.SetActive(false);
 
 
@@ -92,5 +92,14 @@ public class TrainingManager : MonoBehaviour
                
             //}
         }
+    }
+     public  void scen_chang()
+    {
+
+        PlayerPrefs.SetInt("PresentationsDisplayed", 1);
+        sceneSwitcher.sceneToLoad = "Intro";
+        sceneSwitcher.LoadScene();
+
+
     }
 }
