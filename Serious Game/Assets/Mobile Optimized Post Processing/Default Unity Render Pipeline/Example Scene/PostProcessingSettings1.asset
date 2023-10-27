@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf74a903faefe9498c18a5396b57aeb, type: 3}
   m_Name: PostProcessingSettings1
   m_EditorClassIdentifier: 
-  VignetteEnabled: 1
+  VignetteEnabled: 0
   VignettePower: 0.27
   VignetteCenter: {x: 0, y: 0}
   BlurEnabled: 0
@@ -37,7 +37,7 @@ MonoBehaviour:
   BloomBlurTextureResolutionDivider: 10
   BloomBlurIterations: 10
   FilterTextureResolutionDivider: 1
-  BloomIntensity: 1.82
+  BloomIntensity: 1.48
   BloomThreshold: 1.16
   BloomSoftThreshold: 0.71
   BloomDebugView: 0
