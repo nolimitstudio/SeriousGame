@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         waterresource = PlayerPrefs.GetInt("Water", 0);
         goldresource = PlayerPrefs.GetInt("Gold", 0);
         XPresource = PlayerPrefs.GetInt("XP", 0);
- 	        UpdateResourceUI();
+ 	      UpdateResourceUI();
         if (introscen)
         {
             sting.SetActive(false);
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
             Invoke("alart", 1f);
          
            
-            SliderVolume.value = PlayerPrefs.GetFloat("sund", 1f);
+            //SliderVolume.value = PlayerPrefs.GetFloat("sund", 1f);
         }
        
 
@@ -82,22 +82,22 @@ public class GameManager : MonoBehaviour
     public void AdjustSoundVolume()
     {
         sundVolume += SliderVolume.value;
-        sundVolume = Mathf.Clamp(sundVolume, 0.0f, 1.0f);
-        PlayerPrefs.SetFloat("sund", sundVolume);
-        if (audioSources == null)
-        {
+     
+        //PlayerPrefs.SetFloat("sund", sundVolume);
+        //if (audioSources == null)
+        //{
 
-        }
-        else
-        {
-            for (int i = 0; i < audioSources.Length; i++)
-            {
+        //}
+        //else
+        //{
+        //    for (int i = 0; i < audioSources.Length; i++)
+        //    {
 
-                audioSources[i].volume = PlayerPrefs.GetFloat("sund", 1f);
-            }
+        //        audioSources[i].volume = PlayerPrefs.GetFloat("sund", 1f);
+        //    }
 
 
-        }
+        //}
        
 
     }
