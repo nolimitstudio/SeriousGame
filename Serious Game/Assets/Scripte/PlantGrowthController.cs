@@ -84,14 +84,14 @@ public class PlantGrowthController : MonoBehaviour
         if (timePassedInSeconds >= cooldownDuration)
         {
             waterButton.interactable = true;
-            cooldownText.text = "Button is ready!";
+            cooldownText.text = ".ﺪﯿﻫﺪﺑ ﺏﺁ ﺍﺭ ﻞﮔ ";
         }
         else
         {
-            waterButton.interactable = false;
+          //  waterButton.interactable = false;
             float timeRemainingInSeconds = cooldownDuration - timePassedInSeconds;
             TimeSpan timeRemaining = TimeSpan.FromSeconds(timeRemainingInSeconds);
-            cooldownText.text = $"Button disabled for {timeRemaining.Hours:D2}:{timeRemaining.Minutes:D2}:{timeRemaining.Seconds:D2}";
+            cooldownText.text = $" :ﯽﻫﺩ ﺏﺁ ﻥﺎﻣﺯ  {timeRemaining.Hours:D2}:{timeRemaining.Minutes:D2}:{timeRemaining.Seconds:D2}";
         }
     }
 }
