@@ -38,7 +38,7 @@ public class MemoryGameController : MonoBehaviour
 
     private IEnumerator PlaySequence()
     {
-        for (int i = 0; i < Random.Range(1, objectNames.Count); i++)
+        for (int i = 0; i < Random.Range(2, objectNames.Count); i++)
         {
 
             int randomIndex = Random.Range(0, objectNames.Count);
