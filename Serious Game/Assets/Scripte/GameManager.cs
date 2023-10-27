@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         waterresource = PlayerPrefs.GetInt("Water", 0);
         goldresource = PlayerPrefs.GetInt("Gold", 0);
         XPresource = PlayerPrefs.GetInt("XP", 0);
- 	UpdateResourceUI();
+ 	        UpdateResourceUI();
         if (introscen)
         {
             sting.SetActive(false);

@@ -17,8 +17,8 @@ public class Kochekatrat : MonoBehaviour
     public GameObject[] Qusithain;
     public GameObject NOTture;
     public GameManager GameManager;
-    
-     
+
+    public GameObject sund;
 
     private void Start()
     {
@@ -33,6 +33,7 @@ public class Kochekatrat : MonoBehaviour
         startPanel.SetActive(false);
         videoPanel.SetActive(false);
         videoPlayer.Play();
+        sund.SetActive(true);
         videoPlayed = true;
 
        
@@ -41,7 +42,8 @@ public class Kochekatrat : MonoBehaviour
 
     private void OnVideoEnd(VideoPlayer vp)
     {
-     
+        sund.SetActive(false);
+
         ShowQuestions();
     }
 

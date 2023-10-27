@@ -212,8 +212,8 @@ public class Objectselector: MonoBehaviour
                 riaxing_ui.gameObject.SetActive(true);
                 minigamepanel.SetActive(false);
                 Minui.SetActive(false);
-                GameManager.ModifyGoldResource(GameManager.goldresource - namecomponet.gold);
-                GameManager.ModifyWaterResource(GameManager.waterresource - namecomponet.Water);
+                GameManager.ModifyGoldResource( - namecomponet.gold);
+                GameManager.ModifyWaterResource (- namecomponet.Water);
             }
            
            
@@ -227,8 +227,8 @@ public class Objectselector: MonoBehaviour
                 bomgrdeui.gameObject.SetActive(true);
                 minigamepanel.SetActive(false);
                 Minui.SetActive(false);
-                GameManager.ModifyGoldResource(GameManager.goldresource - namecomponet.gold);
-                GameManager.ModifyWaterResource(GameManager.waterresource - namecomponet.Water);
+                GameManager.ModifyGoldResource( - namecomponet.gold);
+                GameManager.ModifyWaterResource( - namecomponet.Water);
             }
 
         }
@@ -241,8 +241,8 @@ public class Objectselector: MonoBehaviour
                 koche_ui.gameObject.SetActive(true);
                 minigamepanel.SetActive(false);
                 Minui.SetActive(false);
-                GameManager.ModifyGoldResource(GameManager.goldresource - namecomponet.gold);
-                GameManager.ModifyWaterResource(GameManager.waterresource - namecomponet.Water);
+                GameManager.ModifyGoldResource(-namecomponet.gold);
+                GameManager.ModifyWaterResource(-namecomponet.Water);
             }
         }
         else if (level == minigame)
@@ -257,8 +257,8 @@ public class Objectselector: MonoBehaviour
                 SceneSwitcher.sceneToLoad = level;
                 SceneSwitcher.LoadScene();
                 Minui.SetActive(false);
-                GameManager.ModifyGoldResource(GameManager.goldresource - namecomponet.gold);
-                GameManager.ModifyWaterResource(GameManager.waterresource - namecomponet.Water);
+                GameManager.ModifyGoldResource(-namecomponet.gold);
+                GameManager.ModifyWaterResource( - namecomponet.Water);
             }
 
 
