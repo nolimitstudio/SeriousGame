@@ -31,11 +31,11 @@ public class TrainingManager : MonoBehaviour
         else
         {
             
-            for (int i = 1; i < cameras.Length; i++)
-            {
-                cameras[i].gameObject.SetActive(false);
-                presentationTexts[i].SetActive(false);
-            }
+            //for (int i = 0; i < cameras.Length; i++)
+            //{
+            //    cameras[i].gameObject.SetActive(false);
+            //    presentationTexts[i].SetActive(false);
+            //}
 
             nextButton.onClick.AddListener(NextButtonClick);
             nextButton.gameObject.SetActive(false);
@@ -50,41 +50,29 @@ public class TrainingManager : MonoBehaviour
     {
         if (!hasDisplayedPresentations)
         {
+           
             nextButton.gameObject.SetActive(true);
-            //if (currentPresentationIndex== (cameras.Length))
-            //{
+                cameras[currentPresentationIndex].gameObject.SetActive(false);
 
-            //}
-            //else
-            //{
-            cameras[currentPresentationIndex].gameObject.SetActive(false);
-            //}
-          
-            presentationTexts[currentPresentationIndex].SetActive(false);
-            currentPresentationIndex++;
+
+                presentationTexts[currentPresentationIndex].SetActive(false);
+
+                currentPresentationIndex++;
 
 
 
-            if (currentPresentationIndex < presentationTexts.Length)
-            {
-                //if (currentPresentationIndex==(cameras.Length+1))
-                //{
-                //    Camera = cameras[Random.Range(0, cameras.Length)];
-                //   Camera.gameObject.SetActive(true);
-                //}
-                //else
-                //{
-                if (currentPresentationIndex< cameras.Length)
+                if (currentPresentationIndex < presentationTexts.Length)
                 {
-                    cameras[currentPresentationIndex].gameObject.SetActive(true);
-                }
-                   /// cameras[currentPresentationIndex].gameObject.SetActive(true);
-                //}
 
-               
-                presentationTexts[currentPresentationIndex].gameObject.SetActive(true);
-             
-            }
+
+                    cameras[currentPresentationIndex].gameObject.SetActive(true);
+
+
+
+                    presentationTexts[currentPresentationIndex].gameObject.SetActive(true);
+
+                }
+           
             else
             {
                 PlayerPrefs.SetInt("PresentationsDisplayed", 1);
