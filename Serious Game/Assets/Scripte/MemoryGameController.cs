@@ -38,7 +38,7 @@ public class MemoryGameController : MonoBehaviour
 
     private IEnumerator PlaySequence()
     {
-        for (int i = 0; i < Random.Range(0, objectNames.Count); i++)
+        for (int i = 0; i < Random.Range(1, objectNames.Count); i++)
         {
 
             int randomIndex = Random.Range(0, objectNames.Count);
@@ -70,11 +70,12 @@ public class MemoryGameController : MonoBehaviour
                 if (hit != null)
                 {
                     GameObject hitObjectName = hit.gameObject;
+                    audioSources[int.Parse(hitObjectName.gameObject.name)].Play();
                     if (hitObjectName == sequence[currentIndex])
                     {
                         hitObjectName.GetComponent<SpriteRenderer>().color = Color.green;
                         currentIndex++;
-                        audioSources[currentIndex].Play();
+                        
 
                         if (currentIndex == sequence.Count)
                         {
