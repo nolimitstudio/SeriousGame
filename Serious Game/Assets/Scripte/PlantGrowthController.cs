@@ -23,6 +23,7 @@ public class PlantGrowthController : MonoBehaviour
     public GameManager GameManager;
 
     public string kayname;
+    private bool cantuch;
     
 
     private void Start()
@@ -38,8 +39,11 @@ public class PlantGrowthController : MonoBehaviour
 
     private void OnWaterButtonClick()
     {
+        if (cantuch)
+        {
 
-      
+
+
             if (frestclik == 0)
             {
 
@@ -59,7 +63,8 @@ public class PlantGrowthController : MonoBehaviour
             PlayerPrefs.SetInt("frestclik", 2);
 
 
-       
+        }
+
        
     }
       
@@ -83,12 +88,14 @@ public class PlantGrowthController : MonoBehaviour
         float timePassedInSeconds = (float)timePassed.TotalSeconds;
         if (timePassedInSeconds >= cooldownDuration)
         {
-            waterButton.interactable = true;
+         //   waterButton.interactable = true;
+            cantuch = true;
             cooldownText.text = ".ﺪﯿﻫﺪﺑ ﺏﺁ ﺍﺭ ﻞﮔ ";
         }
         else
         {
-          //  waterButton.interactable = false;
+           // waterButton.interactable = false;
+            cantuch = false;
             float timeRemainingInSeconds = cooldownDuration - timePassedInSeconds;
             TimeSpan timeRemaining = TimeSpan.FromSeconds(timeRemainingInSeconds);
             cooldownText.text = $" :ﯽﻫﺩ ﺏﺁ ﻥﺎﻣﺯ  {timeRemaining.Hours:D2}:{timeRemaining.Minutes:D2}:{timeRemaining.Seconds:D2}";
