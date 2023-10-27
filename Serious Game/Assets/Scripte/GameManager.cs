@@ -40,21 +40,21 @@ public class GameManager : MonoBehaviour
         }
        
 
-        audioSources = FindObjectsOfType<AudioSource>();
-        if (audioSources== null)
-        {
+       // audioSources = FindObjectsOfType<AudioSource>();
+       // if (audioSources== null)
+      //  {
 
-        }
-        else
-        {
-            for (int i = 0; i < audioSources.Length; i++)
-            {
+      //  }
+      //  else
+      //  {
+           // for (int i = 0; i < audioSources.Length; i++)
+          //  {
 
-                audioSources[i].volume = PlayerPrefs.GetFloat("sund", 1f);
-            }
+            //    audioSources[i].volume = PlayerPrefs.GetFloat("sund", 1f);
+          //  }
 
 
-        }
+      //  }
     }
      public  void alart()
     {
