@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
             Invoke("alart", 1f);
          
            
-            //SliderVolume.value = PlayerPrefs.GetFloat("sund", 1f);
+            SliderVolume.value = PlayerPrefs.GetFloat("sund", 1f);
         }
        
 

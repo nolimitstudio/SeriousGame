@@ -14,8 +14,8 @@ public class MemoryGameController : MonoBehaviour
     private bool playerTurn = false;
     private bool gameOver = false;
 
-    public GameObject panel;
-    public Text text;
+    public GameObject panelwin;
+    public GameObject panelover;
 
     public AudioSource[] audioSources;
      
@@ -32,7 +32,8 @@ public class MemoryGameController : MonoBehaviour
         currentIndex = 0;
         gameOver = false;
         
-        panel.SetActive(false);
+        panelwin.SetActive(false);
+        panelover.SetActive(false);
         StartCoroutine(PlaySequence());
     }
 
@@ -100,14 +101,14 @@ public class MemoryGameController : MonoBehaviour
 
     public  void shopanel()
     {
-        panel.SetActive(true);
+       
         if (gameOver)
         {
-            text.text = "GAMEover";
+            panelover.SetActive(true);
         }
         else
         {
-            text.text = "GAMEwin";
+            panelwin.SetActive(true);
 
         }
         for (int i = 0; i < objectNames.Count; i++)
